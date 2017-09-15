@@ -8,7 +8,7 @@ import java.util.Calendar;
 
 public class Demo2 {
     public static void main(String[] args){
-        int len=100000;
+        int len=100000000;
         int[] arr1=new int[len];
         for(int i=0;i<len;i++)
         {
@@ -17,10 +17,12 @@ public class Demo2 {
             int t=(int)(Math.random()*10000);
         }
 
-        Bubble bubble=new Bubble();
+        //Bubble bubble=new Bubble();
+        InsertSort is=new InsertSort();
         Calendar cal= Calendar.getInstance();
         System.out.println(cal.getTime());
-        bubble.sort(arr1);
+        is.sort(arr1);
+        //bubble.sort(arr1);
         cal=Calendar.getInstance();
         System.out.println(cal.getTime());
         //简单数据类型不会变化
@@ -101,3 +103,35 @@ class Select
         }*/
     }
 }
+
+//插入排序
+class InsertSort
+{
+    //插入排序方法
+    public void sort(int arr[])
+    {
+        for(int i=1;i<arr.length;i++)
+        {
+            int insertVal=arr[i];
+            int index=i-1;
+            while(index>=0&&insertVal<arr[index])
+            {
+                //把arr[index]向后移动
+                arr[index+1]=arr[index];
+
+                index--;
+            }
+            arr[index+1]=insertVal;
+        }
+    }
+}
+//快速排序
+//class QuickSort{
+//    public void sort(int left,int right,int[] array){
+//        int l=left;
+//        int r=right;
+//    }
+//}
+//选堆排序法
+//二叉树排序法
+//合并排序法
