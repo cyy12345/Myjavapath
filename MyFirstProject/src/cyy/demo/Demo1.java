@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class Demo1 {
     public static void main(String[] args) throws Exception{
         //
-        Dog dogs[]=new Dog[4];
+        cyy.demo.Dog dogs[]=new cyy.demo.Dog[4];
 
         /*dogs[0].setName("huahua");
         dogs[0].setWeight(3.3f);*/
@@ -17,7 +17,7 @@ public class Demo1 {
         for(int i=0;i<4;i++)
         {
             //chong
-            dogs[i]=new Dog();
+            dogs[i]=new cyy.demo.Dog();
             System.out.println("Please input dog name:");
             //Read dogs name from console
             String name =br.readLine();

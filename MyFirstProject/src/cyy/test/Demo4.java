@@ -8,13 +8,19 @@ package cyy.test;
 public class Demo4 {
     public static void main(String[] args)
     {
-        Parcel p=new Parcel();
+        /*Parcel p=new Parcel();
         p.testShip();
 
         Parcel.Contents c=p.new Contents(33);
         Parcel.Destination d=p.new Destination("Hawaii");
         p.setProperty(c,d);
         p.ship();
+
+        A a=new A();
+        A.B b=a.new B();
+        b.mb(11);*/
+        Outer outer = new Outer();
+        outer.makeTheInner(12);
 
     }
 }
@@ -44,5 +50,33 @@ class Parcel{
         c=new Contents(22);
         d=new Destination("Beijing");
         ship();
+    }
+}
+
+class A{
+    private int s=111;
+    public class B{
+        private int s=222;
+        public void mb(int s){
+            System.out.println(s);
+            System.out.println(this.s);
+            System.out.println(A.this.s);
+        }
+    }
+
+}
+
+class Outer{
+    private int size = 5;
+    public Object makeTheInner(int localVar){
+        final int finalLocalVar=99;
+        class Inner{
+            public String toString(){
+                return ("InnerSize: "+size + "finalLocalVar: "+
+                finalLocalVar);
+            }
+        }
+        return new Inner();
+
     }
 }
